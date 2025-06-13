@@ -1,6 +1,18 @@
 section.review-content {
   max-width: 650px;
-  margin: 70px auto 0;
-  padding: 30px 50px 0;
+  margin: 1rem auto 0;
+  padding: 1rem 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  section.review-content {
+    max-width: 100%;
+    padding: 1rem; /* 可以写为 1rem 1rem 0 */
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
 }
 
