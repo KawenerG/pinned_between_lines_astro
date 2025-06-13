@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { base } from "../utils/env";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const reviews = await getCollection("reviews");
 ---
@@ -10,12 +11,12 @@ const reviews = await getCollection("reviews");
 <ul>
   {reviews.map(r => (
     <li>
-      <a href={`/reviews/${r.slug}`}>{r.data.title}</a>
+      <a href={`${base}/reviews/${r.slug}`}>{r.data.title}</a>
       <small>（{r.data.series ?? "未分类"}）</small>
     </li>
   ))}
 </ul>
 
 <hr />
-<p><a href="/reviews/">按系列浏览书评</a></p>
+<p><a href={`${base}/reviews/`}>按系列浏览书评</a></p>
 </BaseLayout>

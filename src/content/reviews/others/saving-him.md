@@ -1,35 +1,17 @@
 ---
 title: "Saving Him"
-pubDate: "2025-06-11"
+author: "Sara Hurst"
+authorDate: "2023"
+reviewDate: "2025-06-11"
 description: ""
+rating: 7
 tags: ["中篇", "现代", "救赎", "MM", "强强","军旅","特种兵"]
-cover: "../../../assets/covers/saving-him.jpg"
+cover: "saving-him.jpg"
 buyLink: "https://www.amazon.com/Saving-Him-Sara-Hurst-ebook/dp/B0CHHYRRZJ"
 series: "others"
+showAmazonCover: true
 ---
 
-# Saving Him by Sara Hurst
-
-<div style="display: flex; align-items: center; gap: 50px; margin-left: 12px;">
-
-  <!-- 左：封面图 -->
-  <div style="flex: 0 0 auto;">
-    <a href="https://www.amazon.com/Saving-Him-Sara-Hurst-ebook/dp/B0CHHYRRZJ" target="_blank">
-      <img src="../../../assets/covers/saving-him.jpg" alt="Saving Him 封面" width="160">
-    </a>
-  </div>
-
-  <!-- 右：购买信息 -->
-  <div style="font-size: 0.85em; color: #555;">
-    <strong>Saving Him</strong><br>
-    <em>Sara Hurst, 2023</em><br>
-    封面来源：Amazon<br>
-    <a href="https://www.amazon.com/Saving-Him-Sara-Hurst-ebook/dp/B0CHHYRRZJ" target="_blank">点击购买</a>
-  </div>
-
-</div>
-
-**评分：7/10**  
 **CP：Adam × Brock 结尾有一处骑乘反攻**  
 **篇幅：中篇｜约 5 万字｜第一人称双视角**
 
@@ -64,6 +46,6 @@ Adam和Brock是一同入伍、一路并肩奋斗到海豹突击队的战友，8�
 
 ---
 
-> 一方被抓被虐，另一方疯了一样去救，坦白说我就是爱这个梗😋 此生挚爱美（帅）强惨🥲
+<span style="color: #e91e63;">一方被抓被虐，另一方疯了一样去救，坦白说我就是爱这个梗😋 此生挚爱美（帅）强惨🥲</span>
 
 <div style="height: 8rem;"></div>

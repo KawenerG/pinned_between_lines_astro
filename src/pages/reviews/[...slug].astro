@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { base } from "../../utils/env";
 const { slug } = Astro.params as { slug: string };
 const review = await getEntry("reviews", slug);
 if (!review) throw new Error("Not found");
@@ -13,9 +14,34 @@ export async function getStaticPaths() {
 }
 ---
 <BaseLayout title={review.data.title}>
+  <section class="review-content">
 <article>
-  <h1>{review.data.title}</h1>
-  <p><em>{review.data.pubDate}</em></p>
+  <h1 style="font-size: 1.8rem; font-weight: bold;">
+  {review.data.title}
+  <span style="font-size: 1rem; font-weight: normal; color: #666; margin-left: 0.5em;">
+    by {review.data.author}
+  </span>
+</h1>
+  <p><em>{review.data.reviewDate.replace(/-/g, ".")}</em></p>
+  {review.data.showAmazonCover && review.data.cover && (
+    <div style="display: flex; align-items: center; gap: 50px; margin-left: 12px;">
+      <div style="flex: 0 0 auto;">
+        <a href={review.data.buyLink} target="_blank">
+          <img
+            src={`${base}/assets/covers/${review.data.cover}`}
+            alt={`${review.data.title} 封面`}
+            width="160"
+          />
+        </a>
+      </div>
+      <div style="font-size: 0.85em; color: #555;">
+        <strong>{review.data.title}</strong><br />
+        <em>{review.data.authorDate.replace(/-/g, ".")}</em><br />
+        封面来源：Amazon<br />
+        <a href={review.data.buyLink} target="_blank">点击购买</a>
+      </div>
+    </div>
+  )}
   {review.data.series && <p>📂 系列：{review.data.series}</p>}
   {review.data.tags && (
     <p>
@@ -27,6 +53,12 @@ export async function getStaticPaths() {
       ))}
     </p>
   )}
+  <p style="margin-top: 0; font-size: 0.95rem; color: #888;">
+  评分：{review.data.rating} / 10
+  </p>
+   <div class="prose prose-zinc mt-6">
   {(await review.render()).Content({}, {}, {})}
+  </div>
 </article>
+</section>
 </BaseLayout>

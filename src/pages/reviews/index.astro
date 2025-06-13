@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
+import { base } from "../../utils/env";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const reviews = await getCollection("reviews");
 const grouped = new Map();
@@ -20,7 +21,7 @@ for (const r of reviews) {
     <ul>
       {items.map((r:Review) => (
         <li>
-          <a href={`/reviews/${r.slug}`}>{r.data.title}</a>
+          <a href={`${base}/reviews/${r.slug}`}>{r.data.title}</a>
         </li>
       ))}
     </ul>
