@@ -1,0 +1,29 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const reviews = await getCollection("reviews");
+const grouped = new Map();
+type Review = CollectionEntry<"reviews">;
+
+for (const r of reviews) {
+  const key = r.data.series || "未分类";
+  if (!grouped.has(key)) grouped.set(key, []);
+  grouped.get(key).push(r);
+}
+---
+<BaseLayout title="书评首页">
+<h1>📖 所有书评分组展示</h1>
+
+{Array.from(grouped.entries()).map(([series, items]) => (
+  <section>
+    <h2>{series}</h2>
+    <ul>
+      {items.map((r:Review) => (
+        <li>
+          <a href={`/reviews/${r.slug}`}>{r.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+))}
+</BaseLayout>

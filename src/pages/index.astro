@@ -1,16 +1,21 @@
 ---
-
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const reviews = await getCollection("reviews");
 ---
+<BaseLayout title="书评首页">
+<h1>📚 我的书评站：Pinned Between Lines</h1>
+<p>共收录 {reviews.length} 篇书评：</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<ul>
+  {reviews.map(r => (
+    <li>
+      <a href={`/reviews/${r.slug}`}>{r.data.title}</a>
+      <small>（{r.data.series ?? "未分类"}）</small>
+    </li>
+  ))}
+</ul>
+
+<hr />
+<p><a href="/reviews/">按系列浏览书评</a></p>
+</BaseLayout>

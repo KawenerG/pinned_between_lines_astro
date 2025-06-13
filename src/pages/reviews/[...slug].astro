@@ -1,0 +1,32 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const { slug } = Astro.params as { slug: string };
+const review = await getEntry("reviews", slug);
+if (!review) throw new Error("Not found");
+
+export async function getStaticPaths() {
+  const entries = await getCollection("reviews");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug }, //string
+  }));
+}
+---
+<BaseLayout title={review.data.title}>
+<article>
+  <h1>{review.data.title}</h1>
+  <p><em>{review.data.pubDate}</em></p>
+  {review.data.series && <p>📂 系列：{review.data.series}</p>}
+  {review.data.tags && (
+    <p>
+      🏷️ 标签：
+      {review.data.tags.map((tag) => (
+        <span style="display: inline-block; margin-right: 8px; padding: 2px 6px; background: #eee; border-radius: 6px; font-size: 0.85em;">
+          {tag}
+        </span>
+      ))}
+    </p>
+  )}
+  {(await review.render()).Content({}, {}, {})}
+</article>
+</BaseLayout>
