@@ -1,12 +1,13 @@
 ---
 const { title = "Pinned Between Lines" } = Astro.props;
+import { base } from "../utils/env";
 ---
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/src/styles/review-layout.css" />
+    <link rel="stylesheet" href={`${base}/styles/review-layout.css`} />
   </head>
   <body>
     <slot />
