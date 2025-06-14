@@ -8,7 +8,7 @@ rating: 7
 tags: ["中篇", "现代", "救赎", "MM", "强强","军旅","特种兵"]
 cover: "saving-him.jpg"
 buyLink: "https://www.amazon.com/Saving-Him-Sara-Hurst-ebook/dp/B0CHHYRRZJ"
-series: "others"
+series: "Others"
 showAmazonCover: true
 ---
 
