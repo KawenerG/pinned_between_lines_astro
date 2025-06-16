@@ -16,14 +16,6 @@ export async function getStaticPaths() {
 <BaseLayout title={review.data.title}>
   <section class="review-content">
 <article>
-  <!-- <h1 style="font-size: 1.8rem; font-weight: bold;">
-  {review.data.title}
-  <span style="font-size: 1rem; font-weight: normal; color: #666; margin-left: 0.5em;">
-    by {review.data.author}
-  </span>
-</h1>
-  <p><em>{review.data.reviewDate.replace(/-/g, ".")}</em></p> -->
-
   <!-- 居中标题 -->
   <h1 class="article-title">
     {review.data.title}

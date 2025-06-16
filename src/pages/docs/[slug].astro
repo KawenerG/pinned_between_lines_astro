@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { slug } = Astro.params;
+const entry = await getEntry("docs", slug);
+if (!entry) throw new Error("Doc not found");
+
+export async function getStaticPaths() {
+  const entries = await getCollection("docs");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+  }));
+}
+---
+
+<BaseLayout title={entry.data.title}>
+  <section class="review-content">
+    <article class="prose prose-zinc">
+      <h1>{entry.data.title}</h1>
+      {(await entry.render()).Content({}, {}, {})}
+    </article>
+  </section>
+</BaseLayout>

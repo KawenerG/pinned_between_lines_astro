@@ -20,6 +20,12 @@ const reviews = defineCollection({
   }),
 });
 
+const docs = defineCollection({
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 export const collections = {
-  reviews,
+  reviews,docs
 };
