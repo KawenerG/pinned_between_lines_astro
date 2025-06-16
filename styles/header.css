@@ -1,0 +1,68 @@
+/* 顶部容器，去掉左右内边距，只留上下 */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0.6rem 0;
+}
+
+/* 三列布局：左右各自分配剩余空间，中间固定 650px */
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 650px 1fr;
+  align-items: center;
+  width: 100%;
+  column-gap: 1rem;
+}
+
+/* 第一列：标题区，推到列的右边缘 */
+.nav-left {
+  grid-column: 1;
+  justify-self: end;
+}
+
+/* 标题样式 */
+.nav-left .site-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+}
+
+/* 第二列：菜单区，内部右对齐 */
+.nav-center {
+  grid-column: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* 菜单链接样式 */
+.nav-center a {
+  text-decoration: none;
+  color: #444;
+  font-size: 0.95rem;
+}
+.nav-center a:hover {
+  color: #000;
+}
+
+/* 第三列：小猫图标区，水平居中 */
+.nav-right {
+  grid-column: 3;
+  justify-self: center;
+}
+
+/* 小猫链接样式 */
+.nav-right a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #444;
+}
+.nav-right a:hover {
+  color: #000;
+}
