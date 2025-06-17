@@ -4,7 +4,7 @@ import { base } from "../utils/env";
 <header class="top-nav">
   <div class="nav-bar">
     <div class="nav-left">
-      <a href="/" class="site-logo">Pinned Between Lines</a>
+      <a href={`${base}/`} class="site-logo">Pinned Between Lines</a>
     </div>
     <nav class="nav-center">
       <a href={`${base}/`}>首页</a>
@@ -12,6 +12,7 @@ import { base } from "../utils/env";
       <a href={`${base}/docs/about-me`}>关于</a>
     </nav>
     <div class="nav-right">
+        <span id="theme-toggle" style="cursor: pointer;">🌙</span>
       <a href="https://github.com/kawenerg/pinned_between_lines_astro" target="_blank" aria-label="GitHub">🐱</a>
     </div>
   </div>

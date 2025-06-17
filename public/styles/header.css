@@ -54,6 +54,8 @@
 .nav-right {
   grid-column: 3;
   justify-self: center;
+  display: flex;
+  gap: 0.8rem;
 }
 
 /* 小猫链接样式 */
@@ -64,5 +66,18 @@
   color: #444;
 }
 .nav-right a:hover {
+  color: #000;
+}
+/* 深夜主题切换 */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.theme-toggle:hover {
   color: #000;
 }

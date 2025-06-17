@@ -4,12 +4,26 @@ import { base } from "../utils/env";
 import Header from "../components/Header.astro";
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="no-transition">
   <head>
+    <script>
+  (function () {
+    try {
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+    document.documentElement.classList.add('no-transition');    
+  })();
+</script>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{title}</title>
     <link rel="stylesheet" href={`${base}/styles/review-layout.css`} />
     <link rel="stylesheet" href={`${base}/styles/header.css`} />
+    <script src={`${base}/scripts/theme-toggle.js`} defer></script>
+    <link rel="stylesheet" href={`${base}/styles/theme.css`} />
     <link rel="icon" href={`${base}/favicon.ico`} type="image/x-icon" />
   </head>
   <body>

@@ -20,6 +20,17 @@ section.review-content {
   line-height: 1.75;
 }
 
+/* Markdown 引用样式 */
+.review-content blockquote {
+  border-left: 4px solid #ccc;
+  padding: 0.5em 1em;
+  margin: 1.2em 0;
+  background-color: #f9f9f9;
+  color: #555;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
 /* @preserve: 独立类名，需明确保留 */
 .article-title {
   text-align: center;
@@ -28,6 +39,7 @@ section.review-content {
   color: #555;
   font-weight: bold;
   margin-bottom: 0.1em;
+  margin-top: 0.2em; 
 }
 
 /* @preserve */
