@@ -1,3 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* 全局优先使用 Georgia 的英文衬线字体 */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -20,6 +26,17 @@ section.review-content {
   line-height: 1.75;
 }
 
+/* Markdown 引用样式 */
+.review-content blockquote {
+  border-left: 4px solid #ccc;
+  padding: 0.5em 1em;
+  margin: 1.2em 0;
+  background-color: #f9f9f9;
+  color: #555;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
 /* @preserve: 独立类名，需明确保留 */
 .article-title {
   text-align: center;
@@ -28,6 +45,7 @@ section.review-content {
   color: #555;
   font-weight: bold;
   margin-bottom: 0.1em;
+  margin-top: 0.2em; 
 }
 
 /* @preserve */
@@ -53,9 +71,14 @@ section.review-content {
 .article-divider {
   border: none;
   border-top: 1px solid #ccc;
-  width: 60%;
+  width: 70%;
   margin: 0.2em auto 1em auto;
 }
+
+  /* 标签换行行距优化 */
+  .tag {
+    margin-bottom: 0.3rem;
+  }
 
 @media (max-width: 768px) {
   section.review-content {

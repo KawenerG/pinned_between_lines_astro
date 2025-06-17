@@ -1,0 +1,87 @@
+/* 🌞 默认浅色模式 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --link-color: #0066cc;
+  --heading-color: #111111;
+  --muted-text: #666666;
+  --divider-color: rgba(0, 0, 0, 0.06);
+  --quote-bg: #f9f9f9;
+  --quote-border: #cccccc;
+}
+
+/* 🌙 暗色模式 */
+html.dark {
+    --bg-color: #1c1c1c !important;          /* 更接近碳黑，不是纯黑 */
+  --text-color: #e0e0e0;         /* 主体文字，淡灰白 */
+  --link-color: #f0c674;         /* 链接/强调色：浅金黄 */
+  --heading-color: #ffcb6b;      /* 标题：更明亮的金黄 */
+  --muted-text: #a0a0a0;         /* 次要文字：中灰 */
+  --divider-color: rgba(255, 255, 255, 0.1); /* 浅分隔线 */
+  --quote-bg: #252525;           /* 引用背景：更浅的黑 */
+  --quote-border: #666666;       /* 引用左边线：灰色高亮 */
+}
+
+/* 标签默认浅色模式 */
+.tag {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  background-color: #eee;
+  color: #333;
+}
+
+/* 标签暗色模式 */
+html.dark .tag {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+/* 引用暗色模式 */
+html.dark .review-content blockquote {
+  background-color: #1e1e1e;        /* 更深更柔和的背景，避免过亮 */
+  border-left: 4px solid #888888;  /* 更亮一点的灰边，避免太淡 */
+  color: #e0e0e0;                   /* 更亮的文字色 */
+  padding: 0.8em 1em;
+  margin: 1.2em 0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 🔤 通用布局 */
+html, body {
+  background-color: var(--bg-color, #1c1c1c); /* fallback 避免初期为纯黑 */
+  color: var(--text-color, #e0e0e0); /* fallback 文字也设个默认 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--divider-color);
+  margin: 2em 0;
+}
+
+p, span, time {
+  color: var(--text-color);
+}
+
+em,
+.article-date {
+  color: var(--muted-text);
+}
+
+/* 页面初始加载阶段禁止过渡，防止闪烁 */
+html.no-transition, html.no-transition * {
+  transition: none !important;
+}
