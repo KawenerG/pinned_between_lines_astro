@@ -50,6 +50,59 @@ html.dark .review-content blockquote {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* 暗色模式下，顶部导航栏变灰，logo 文本变成浅灰白 */
+html.dark .top-nav {
+  background: #2a2a2a;            /* 导航栏灰底 */
+  border-bottom-color: rgba(255, 255, 255, 0.1); /* 分隔线更柔和 */
+}
+
+html.dark .top-nav .site-logo {
+  color: var(--text-color);       /* 跟页面文字同色，通常是 #e0e0e0 */
+}
+
+/* 菜单链接样式 */
+html.dark .nav-center a {
+  color: var(--text-color); 
+}
+html.dark .nav-center a:hover {
+  color: #888888;
+}
+
+  /* 暗色模式下让 Pagefind 也变灰 */
+html.dark .pagefind-ui {
+  /* 搜索容器背景*/
+  --pagefind-ui-background: #2a2a2a;
+  /* 输入框背景*/
+  --pagefind-ui-input-background: #2a2a2a;
+
+  /* 文字颜色 */
+  --pagefind-ui-text: var(--text-color);
+  /* 链接/高亮*/
+  --pagefind-ui-primary: #ff8c00;
+  /* 边框颜色 */
+  --pagefind-ui-border: var(--divider-color);
+}
+
+/* 有时候 Drawer 组件会单独指定背景色，再补一条 */
+html.dark .pagefind-ui .pagefind-ui__drawer {
+  background-color: #2a2a2a;
+}
+
+  /* 暗色模式手机搜索适配 */
+  html.dark .mobile-search-overlay {
+    background: #2a2a2a;
+  }
+  
+  html.dark .mobile-search-header {
+    background: #2a2a2a;            /* 导航栏灰底 */
+    border-bottom-color: rgba(255, 255, 255, 0.1); /* 分隔线更柔和 */
+  }
+  
+  html.dark .mobile-search-overlay .pagefind-ui .pagefind-ui__form {
+    background: var(--bg-color);
+    border-color: var(--divider-color);
+  }
+
 /* 🔤 通用布局 */
 html, body {
   background-color: var(--bg-color, #1c1c1c); /* fallback 避免初期为纯黑 */
