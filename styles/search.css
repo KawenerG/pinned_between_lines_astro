@@ -12,8 +12,8 @@
   }
     /* 聚焦到搜索框或者搜索框文字时生效 */
 .pagefind-ui.expanded {
-    width: 100%;
-    transform: translateX(-25%);
+    width: 86%;
+    transform: translateX(-18%);
 }
 
 /* 给结果标题和摘要里的高亮文字加下划线 */
