@@ -1,5 +1,6 @@
 /* 顶部容器，去掉左右内边距，只留上下 */
 .top-nav {
+    box-sizing: border-box; /* ✅ 包含 padding 和 border 在 width 计算内 */
   position: sticky;
   top: 0;
   z-index: 999;
@@ -9,7 +10,7 @@
   padding: 0.6rem 1rem;
   margin: 0;          /* ✅ 防止外边距 */
   border-radius: 0;   /* ✅ 去除圆角（有时默认设置会有） */
-  width: 100vw; /* 强制横向铺满 */
+  width: 100%; /* 强制横向铺满 */
 }
 
 /* 三列布局：左右各自分配剩余空间，中间固定 650px */
@@ -54,18 +55,26 @@
   color: #000;
 }
 
-/* 第三列：小猫图标区，水平居中 */
+/* 第三列：图标搜索区，水平居中 */
 .nav-right {
   grid-column: 3;
-  justify-self: center;
-  display: flex;
   gap: 0.8rem;
+
+  /* 让 nav-right 占满第三列75%*/
+  width: 75%;
+
+  /* 内部 flex 项目整体居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 在居中基础上往右挪 */
+  transform: translateX(1.5rem);
 }
 
-/* 小猫链接样式 */
+/* 链接样式 */
 .nav-right a {
   display: flex;
-  align-items: center;
   text-decoration: none;
   color: #444;
 }
@@ -78,34 +87,26 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #444;
+  color: inherit;
   transition: color 0.2s;
-}
-
-.theme-toggle:hover {
-  color: #000;
 }
 
 /* 汉堡按钮默认隐藏，移动端显示 */
 .hamburger-icon {
   display: none;
-  font-size: 1.3rem;
+  font-size: 1rem;
   background: none;
   border: none;
-  color: #444;
+  color: inherit;
   cursor: pointer;
   padding: 0;
+  margin-right: 0.4rem;
 }
-
-.hamburger-icon:hover {
-  color: #000;
-}
-
-
 /* 移动端适配：收起菜单区，仅保留 logo 和图标 */
 @media (max-width: 768px) {
   .nav-bar {
     grid-template-columns: auto auto;
+    align-items: center;
   }
   .nav-center {
     display: none;
@@ -113,6 +114,7 @@
   .nav-left {
     justify-self: start;
     gap: 0.8rem; /* 添加图标和文字之间的空隙 */
+    align-items: center;
   }
   .nav-right {
     justify-self: start;

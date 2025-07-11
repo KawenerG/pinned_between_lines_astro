@@ -20,11 +20,15 @@ import Header from "../components/Header.astro";
 </script>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{title}</title>
-    <link rel="stylesheet" href={`${base}/styles/review-layout.css`} />
-    <link rel="stylesheet" href={`${base}/styles/header.css`} />
-    <script src={`${base}/scripts/theme-toggle.js`} defer></script>
-    <link rel="stylesheet" href={`${base}/styles/theme.css`} />
-    <link rel="icon" href={`${base}/favicon.ico`} type="image/x-icon" />
+    <link rel="stylesheet" href={`${base}styles/review-layout.css`} />
+    <link rel="stylesheet" href={`${base}styles/header.css`} />
+    <link rel="stylesheet" href={`${base}styles/search.css`} />
+    <link href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.css" rel="stylesheet">
+    <script src={`${base}scripts/theme-toggle.js`} defer></script>
+    <script src={`${base}scripts/search-extend.js`} defer></script>
+    <script type="module" src={`${base}scripts/mobile-search.js`} defer></script>
+    <link rel="stylesheet" href={`${base}styles/theme.css`} />
+    <link rel="icon" href={`${base}favicon.ico`} type="image/x-icon" />
   </head>
   <body>
     <Header />

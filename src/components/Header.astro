@@ -1,20 +1,45 @@
 ---
 import { base } from "../utils/env";
+import Search from "astro-pagefind/components/Search";
 ---
 <header class="top-nav">
   <div class="nav-bar">
     <div class="nav-left">
-    <button class="hamburger-icon" aria-label="Menu">☰</button>
-      <a href={`${base}/`} class="site-logo">Pinned Between Lines</a>
+    <span class="hamburger-icon" aria-label="Menu">
+      <i class="fi fi-rr-menu-burger"></i></span>
+      <a href={`${base}`} class="site-logo">Pinned Between Lines</a>
     </div>
     <nav class="nav-center">
-      <a href={`${base}/`}>首页</a>
-      <a href={`${base}/reviews`}>书评</a>
-      <a href={`${base}/docs/about-me`}>关于</a>
+      <a href={`${base}`}>首页</a>
+      <a href={`${base}reviews`}>书评</a>
+      <a href={`${base}docs/about-me`}>关于</a>
     </nav>
     <div class="nav-right">
-        <span id="theme-toggle" style="cursor: pointer;">🌙</span>
-      <a href="https://github.com/kawenerg/pinned_between_lines_astro" target="_blank" aria-label="GitHub">🐱</a>
+        <span id="theme-toggle" style="cursor: pointer;">
+          <i class="fi fi-rr-moon"></i></span>
+      <!-- 移动端搜索图标，只在手机端小屏显示 -->
+      <span id="mobile-search-btn" class="search-icon-btn">
+        <i class="fi fi-rr-search"></i></span>
+      <!-- 原来的 Search 组件，小屏隐藏 -->
+      <Search id="search" className="pagefind-ui" client:load uiOptions={{ showImages:false }} />
+    </div>
+  </div>
+
+  <!-- 手机端全屏搜索覆盖层 - 优化版本 -->
+  <div id="mobile-search-overlay" class="mobile-search-overlay">
+    <!-- 顶部搜索栏区域 -->
+    <div class="mobile-search-header">
+      <span id="mobile-search-back" class="search-back-btn">
+        <i class="fi fi-rr-arrow-left"></i>
+      </span>
+      <div class="mobile-search-container">
+        <Search id="mobile-search" className="pagefind-ui" uiOptions={{ showImages:false }} />
+      </div>
+    </div>
+    
+    <!-- 搜索结果区域 -->
+    <div class="mobile-search-results">
+      <!-- 搜索结果会在这里显示 -->
     </div>
   </div>
 </header>
