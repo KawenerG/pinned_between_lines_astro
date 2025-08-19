@@ -12,18 +12,23 @@ export async function getStaticPaths() {
     params: { slug: entry.slug }, //string
   }));
 }
+const isTitleTooLong = `${review.data.title} by ${review.data.author}`.length >= 35;
 ---
 <BaseLayout title={review.data.title}>
   <section class="review-content">
 <article>
   <!-- 居中标题 -->
+  {isTitleTooLong ? (
+  <>
+    <h1 class="article-title">{review.data.title}</h1>
+    <p class="article-author">by {review.data.author}</p>
+  </>
+) : (
   <h1 class="article-title">
     {review.data.title}
-  <span class="article-author">
-    by {review.data.author}
-  </span>
+    <span class="article-author"> by {review.data.author}</span>
   </h1>
-
+)}
   <!-- 日期和分割线 -->
    <hr class="article-divider" />
   <div class="article-date">
